@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../style/Auth.css"; // Shared CSS file for styling
+import "../style/Auth.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
