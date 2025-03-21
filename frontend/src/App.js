@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import React, { useState } from "react";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import React from "react";
+import Navbar from "./components/pages/Navbar";
+import Home from "./components/pages/Home";
+import Signup from "./components/pages/Signup";
+import Login from "./components/pages/Login";
+import Footer from "./components/pages/Footer";
 
 function App() {
   return (
@@ -12,10 +13,11 @@ function App() {
       <Switch>
         {" "}
         {/* Use Switch instead of Routes */}
-        <Route exact path="/" component={Home} />
+        <Route path="/home" element={<Home />} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
       </Switch>
+      <Footer />
     </Router>
   );
 }
