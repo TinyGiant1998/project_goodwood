@@ -1,9 +1,11 @@
+// server.js
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const eventRoutes = require("./routes/eventRoutes");
+const galleryRoutes = require("./routes/galleryRoutes"); // Make sure this is included
 
 dotenv.config();
 const app = express();
@@ -11,7 +13,8 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json()); // Parse JSON data
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("uploads")); // Serve uploaded images
+app.use("/api", galleryRoutes); // Mount gallery routes under /api
 
 // Routes
 app.use("/api/events", eventRoutes); // Event Routes

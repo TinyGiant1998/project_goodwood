@@ -33,11 +33,11 @@ body {
 }
 
 .react-calendar__tile--active {
-  background-color: #3b82f6; /* Active tile blue color */
+  background-color: #5a7ce9; /* Active tile blue color */
 }
 
 .react-calendar__tile--now {
-  background-color: #1e3a8a; /* Today's date yellow */
+  background-color: #5a7ce9; /* Today's date yellow */
 }
 
 .react-calendar__tile--hasActive {
@@ -106,7 +106,7 @@ h3 {
 
 .event-card img {
   width: 600px; /* Larger image size */
-  height: 300px;
+  height: 400px;
   object-fit: cover;
   margin-right: 20px;
 }
