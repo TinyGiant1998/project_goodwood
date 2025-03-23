@@ -15,6 +15,8 @@ import MembershipDonation from "./components/pages/MembershipDonation";
 import WhatWeDo from "./components/pages/WhatWeDo";
 import ScrollToTop from "./hooks/ScrollToTop";
 import "./App.css";
+import EventPage from "./components/pages/EventPage";
+import AddEvent from "./components/pages/AddEvent";
 
 function App() {
   return (
@@ -36,6 +38,9 @@ function App() {
           />
           <Route path="/membershipDonation" element={<MembershipDonation />} />
           <Route path="/whatWeDo" element={<WhatWeDo />} />
+          <Route path="/" element={<Events />} />
+          <Route path="/add-event" element={<AddEvent />} />
+          <Route path="/event/:id" element={<EventPage />} />
         </Routes>
       </div>
       <Footer />

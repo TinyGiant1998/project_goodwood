@@ -1,0 +1,137 @@
+.event-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.event-page img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.event-page h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.event-page p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.event-page p strong {
+  font-weight: bold;
+}
+
+.edit-btn,
+.delete-btn,
+.cancel-btn {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.edit-btn:hover,
+.delete-btn:hover,
+.cancel-btn:hover {
+  background-color: #2563eb;
+}
+
+.delete-btn {
+  background-color: #e11d48;
+}
+
+.delete-btn:hover {
+  background-color: #f43f5e;
+}
+
+.edit-event-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-event-form input,
+.edit-event-form textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.edit-event-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.edit-event-form button {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.edit-event-form button[type="submit"] {
+  margin-top: 10px;
+}
+
+.edit-event-form button:hover {
+  background-color: #2563eb;
+}
+
+.cancel-btn {
+  background-color: #e11d48;
+  margin-top: 10px;
+}
+
+.cancel-btn:hover {
+  background-color: #f43f5e;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .event-page {
+    padding: 15px;
+  }
+
+  .event-page h2 {
+    font-size: 2rem;
+  }
+
+  .event-page p {
+    font-size: 1rem;
+  }
+
+  .edit-event-form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .edit-event-form input,
+  .edit-event-form textarea {
+    font-size: 0.9rem;
+  }
+}

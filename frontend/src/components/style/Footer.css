@@ -11,7 +11,7 @@
   position: relative;
   bottom: 0; /* Position the footer at the bottom */
   flex-wrap: wrap;
-  margin-top: 20px; /* Space between content and footer */
+  margin-top: 0px; /* Space between content and footer */
 }
 
 .footer-left,

@@ -4,7 +4,7 @@
   background-color: #ffffff;
 }
 .navbar {
-  background-color: transparent;
+  background-color: #f5f3ee;
   color: black;
   padding: 10px;
   display: flex;
@@ -52,7 +52,7 @@
   justify-content: center;
   align-items: center;
   width: 30%; /* Adjust width of the search bar */
-  margin-right: 200px; /* Center the search bar within its parent container */
+  margin-right: 150px; /* Center the search bar within its parent container */
   padding: 0 5px;
   border: 1px solid #ccc;
   background-color: white;
@@ -74,7 +74,7 @@
 /* Styling for the language selector */
 .language-selector select {
   padding: 5px 10px;
-  margin-right: 100px;
+  margin-right: 60px;
   font-size: 16px;
   border-radius: 5px;
   border: none;
@@ -84,6 +84,7 @@
 .nav-links {
   margin-top: 1px;
   text-align: center;
+  background-color: #ffffff;
 }
 
 .nav-links a {

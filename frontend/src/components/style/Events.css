@@ -1,0 +1,160 @@
+/* General Styling */
+body {
+  font-family: "EB Garamond", serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Calendar Styling */
+.react-calendar {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #3464a3;
+  border-radius: 10px;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.react-calendar__tile {
+  color: black;
+  font-weight: bold;
+  border: 2px solid #fff; /* Border between the days */
+  padding: 10px; /* Add space inside each day cell */
+}
+
+.react-calendar__tile--active {
+  background-color: #3b82f6; /* Active tile blue color */
+}
+
+.react-calendar__tile--now {
+  background-color: #1e3a8a; /* Today's date yellow */
+}
+
+.react-calendar__tile--hasActive {
+  background-color: #9333ea; /* Hovered tile color */
+}
+/* Heading */
+h2,
+h3 {
+  font-family: "EB Garamond", serif;
+  text-align: center;
+  color: black;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+/* Add Event Button */
+.add-event-btn-container {
+  display: flex;
+  justify-content: center; /* Horizontally centers the button */
+  align-items: center; /* Vertically centers the button */
+  height: auto; /* Optional: full height to center vertically */
+}
+.add-event-btn {
+  text-align: center;
+  display: inline-block;
+  background-color: #1e3a8a;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.2em;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.add-event-btn:hover {
+  background-color: #2563eb;
+}
+
+.event-list {
+  display: grid;
+  grid-template-columns: 1fr; /* Only 1 event per row */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.event-card {
+  background-color: white;
+  display: flex;
+  flex-direction: row; /* Image in one column, details in the next */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  border: 1px solid #c1c8d4; /* Border for event cards */
+  margin-bottom: 20px;
+  text-decoration: none; /* Remove underline */
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card img {
+  width: 600px; /* Larger image size */
+  height: 300px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.event-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  flex-grow: 1; /* Allow this section to take up the remaining space */
+}
+
+.event-info h4 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 40px; /* Adjust margin to your liking */
+  border-bottom: 1px solid #c1c8d4; /* Full-width underline */
+  padding-bottom: 20px; /* Space between the text and underline */
+  width: 100%; /* Ensure it spans the full width of the container */
+}
+
+.event-info p {
+  color: #000;
+  margin: 0;
+}
+
+.event-info p strong {
+  font-weight: bold;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .event-list {
+    grid-template-columns: 1fr; /* Stack events vertically on small screens */
+  }
+
+  .event-card {
+    flex-direction: column; /* Stack image and details vertically */
+  }
+
+  .event-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .event-info {
+    padding: 15px;
+  }
+}

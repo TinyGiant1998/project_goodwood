@@ -1,27 +1,29 @@
-/* /* App.css */
-
-/* App container with flexbox */
+html,
 body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
 }
+
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full screen height */
+  min-height: 100vh;
 }
 
-/* Content area, which grows to fill available space */
 .content {
-  flex: 1; /* This ensures the content area takes all available space */
-  padding-bottom: 100px; /* Space for footer (optional) */
+  flex-grow: 1;
+  padding-bottom: 0;
 }
 
-/* Footer styling */
 .footer {
   background-color: #3464a3;
   color: black;
   text-align: center;
   padding: 20px;
   width: 100%;
-  position: relative; /* Changed from fixed to relative */
+  height: 150px;
 }

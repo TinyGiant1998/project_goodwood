@@ -1,37 +1,15 @@
 .home {
-  text-align: center;
-  padding: 50px;
-  background-color: red;
-  min-height: 80vh;
+  text-align: left;
+  padding: 50px 200px; /* Adjust padding */
+  /* background-color: #7895ee; */
+  min-height: auto; /* Ensure it doesn't create extra space */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Prevents pushing content down */
 }
 
-h2 {
-  font-size: 2rem;
-  color: #333;
-}
-
+/* Reset margins for consistency */
+h2,
 p {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 600px;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  margin-top: 15px;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
+  margin: 10px 0; /* Ensure a small, controlled gap */
 }
