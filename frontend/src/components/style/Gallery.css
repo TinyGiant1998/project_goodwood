@@ -81,22 +81,25 @@
 
 /* Modal styling */
 .modal {
-  display: none; /* Hidden by default */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
 }
 
-.modal-content {
-  max-width: 90%; /* Ensures image fits inside */
-  max-height: 90%;
-  object-fit: contain;
+.modal-content img {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 10px;
+  object-fit: contain; /* Ensures the image maintains aspect ratio */
+  display: block;
+  margin: auto;
 }
 
 .close {
@@ -119,4 +122,28 @@
     max-width: 100%;
     max-height: 80%;
   }
+}
+
+.delete-btn:hover {
+  background: darkred;
+}
+
+.manage-btn {
+  margin: 10px;
+  padding: 8px 12px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 5px;
 }

@@ -1,27 +1,24 @@
-// server.js
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const eventRoutes = require("./routes/eventRoutes");
-const galleryRoutes = require("./routes/galleryRoutes"); // Make sure this is included
+const galleryRoutes = require("./routes/galleryRoutes");
+const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 dotenv.config();
 const app = express();
 
 // Middleware
 app.use(cors());
-app.use(express.json()); // Parse JSON data
-app.use("/uploads", express.static("uploads")); // Serve uploaded images
-app.use("/api", galleryRoutes); // Mount gallery routes under /api
-
-// Routes
-app.use("/api/events", eventRoutes); // Event Routes
-const authRoutes = require("./routes/authRoutes");
-app.use("/api/auth", authRoutes); // Authentication Routes
-const userRoutes = require("./routes/userRoutes");
-app.use("/api/users", userRoutes); // User Routes
+app.use(express.json());
+app.use("/uploads", express.static("uploads"));
+app.use("/api", galleryRoutes);
+app.use("/api/events", eventRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 // Root Route
 app.get("/", (req, res) => {
