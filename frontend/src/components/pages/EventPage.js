@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../style/EventPage.css";
 
+const role = localStorage.getItem("role");
 const EventPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -109,12 +110,17 @@ const EventPage = () => {
           <p>
             <strong>Organizer:</strong> {event.organizer}
           </p>
-          <button onClick={() => setEditing(true)} className="edit-btn">
-            Edit
-          </button>
-          <button onClick={handleDelete} className="delete-btn">
-            Delete
-          </button>
+          {role === "admin" && (
+            <>
+              <button onClick={() => setEditing(true)} className="edit-btn">
+                Edit
+              </button>
+
+              <button onClick={handleDelete} className="delete-btn">
+                Delete
+              </button>
+            </>
+          )}
         </>
       ) : (
         <form onSubmit={handleUpdate} className="edit-event-form">

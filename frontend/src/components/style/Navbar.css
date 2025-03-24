@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: auto;
   position: sticky;
   top: 0;
 }
@@ -36,7 +36,7 @@
 }
 
 .logo img {
-  height: 120px; /* Adjust size of logo */
+  height: 150px; /* Adjust size of logo */
 }
 
 .logo-text {
@@ -79,11 +79,60 @@
   border-radius: 5px;
   border: none;
 }
+.profile-menu {
+  position: relative; /* Ensure the dropdown appears relative to profile icon */
+  margin-left: 20px; /* Adjust space from the navbar links */
+  display: flex;
+  align-items: center; /* Center the profile icon vertically */
+  padding-top: 10px;
+}
+
+.profile-icon {
+  cursor: pointer;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+  display: flex; /* Stack items vertically */
+  align-items: center;
+  position: absolute;
+  top: 50px; /* Position dropdown below the profile icon */
+  left: 50%; /* Center the dropdown */
+  transform: translateX(-50%); /* Center the dropdown exactly */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 100px; /* You can reduce this to make boxes smaller */
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for links and buttons in dropdown */
+.dropdown-content a,
+.dropdown-content button {
+  color: black; /* Ensure text color is consistent */
+  font-size: 16px; /* Adjust the font size to be the same */
+  text-decoration: none;
+  padding: 5px; /* Add padding for consistency */
+  display: block; /* Ensure they take full width */
+  background-color: transparent; /* Keep background transparent */
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+  background-color: #f5f3ee; /* Add a hover effect for consistency */
+  cursor: pointer; /* Change cursor to pointer */
+}
 
 /* Navbar links styling */
 .nav-links {
+  display: flex; /* Align links horizontally */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-top: 1px;
-  text-align: center;
   background-color: #ffffff;
 }
 
@@ -117,7 +166,22 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column; /* Stack navbar content on small screens */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .search-bar {
+    width: 80%; /* Increase search bar width on smaller screens */
+  }
+
+  .logo-text {
+    font-size: 18px; /* Make text smaller on small screens */
+    right: 10px;
+    bottom: 5px;
+  }
+
   .logo img {
     height: 120px; /* Reduce logo size on very small screens */
   }

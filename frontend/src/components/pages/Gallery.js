@@ -12,6 +12,7 @@ const Gallery = () => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [imageToDelete, setImageToDelete] = useState(null);
   const [manageMode, setManageMode] = useState(false);
+  const role = localStorage.getItem("role");
 
   // Fetch images when the component mounts
   useEffect(() => {
@@ -109,12 +110,19 @@ const Gallery = () => {
         Photos from <br />
         Past Events
       </h1>
-      <button onClick={toggleUploadForm} className="upload-btn">
-        Add Image
-      </button>
-      <button onClick={() => setManageMode(!manageMode)} className="manage-btn">
-        {manageMode ? "Done" : "Manage Images"}
-      </button>
+      {role === "admin" && (
+        <>
+          <button onClick={toggleUploadForm} className="upload-btn">
+            Add Image
+          </button>
+          <button
+            onClick={() => setManageMode(!manageMode)}
+            className="manage-btn"
+          >
+            {manageMode ? "Done" : "Manage Images"}
+          </button>
+        </>
+      )}
 
       {showUploadForm && (
         <form onSubmit={handleUpload} className="upload-form">

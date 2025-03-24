@@ -17,6 +17,7 @@ import ScrollToTop from "./hooks/ScrollToTop";
 import "./App.css";
 import EventPage from "./components/pages/EventPage";
 import AddEvent from "./components/pages/AddEvent";
+import UserProfile from "./components/pages/UserProfile";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/" element={<Events />} />
           <Route path="/add-event" element={<AddEvent />} />
           <Route path="/event/:id" element={<EventPage />} />
+          <Route path="/user" element={<UserProfile />} />
         </Routes>
       </div>
       <Footer />

@@ -10,13 +10,27 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      const userData = { email, password };
       const response = await axios.post(
         "http://localhost:5001/api/auth/login",
-        { email, password }
+        userData
       );
-      setMessage("Login successful! Token: " + response.data.token);
+      console.log("Login Response:", response.data); // Debugging
+
+      const { token, role, username, email: userEmail } = response.data;
+
+      if (token && role && username && email) {
+        localStorage.setItem("token", token);
+        localStorage.setItem("role", role);
+        localStorage.setItem("username", username); // ✅ Store username
+        localStorage.setItem("email", email); // ✅ Store email
+
+        window.location.href = "/"; // Redirect to homepage
+      } else {
+        console.error("Login failed: Missing user data");
+      }
     } catch (error) {
-      setMessage(error.response?.data?.message || "Login failed");
+      setMessage(error.response?.data?.message || error.message);
     }
   };
 
