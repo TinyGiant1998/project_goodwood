@@ -10,28 +10,30 @@ const Navbar = () => {
   const dropdownRef = useRef(null); // Create a ref for the dropdown
   const navigate = useNavigate();
 
-  useEffect(() => {
+  // Function to handle changes in localStorage (for logout and login updates)
+  const handleStorageChange = () => {
     const token = localStorage.getItem("token");
     const userRole = localStorage.getItem("role");
 
     if (token) {
       setIsAuthenticated(true);
       setRole(userRole);
+    } else {
+      setIsAuthenticated(false);
+      setRole(null);
     }
+  };
 
-    // Close the dropdown if clicked outside
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false); // Close the dropdown if click is outside
-      }
-    };
+  useEffect(() => {
+    // Initial check when the component mounts
+    handleStorageChange();
 
-    // Attach event listener to document
-    document.addEventListener("mousedown", handleClickOutside);
+    // Listen for changes in localStorage
+    window.addEventListener("storage", handleStorageChange);
 
     // Cleanup the event listener on component unmount
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("storage", handleStorageChange);
     };
   }, []);
 
@@ -47,6 +49,21 @@ const Navbar = () => {
   const handleLinkClick = () => {
     setShowDropdown(false); // Close the dropdown when a link is clicked
   };
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false); // Close the dropdown if click is outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="navbar">
@@ -92,11 +109,9 @@ const Navbar = () => {
               <div className="dropdown-content">
                 {isAuthenticated ? (
                   <>
-                    {role === "admin" && (
-                      <NavLink to="/user" onClick={handleLinkClick}>
-                        Profile
-                      </NavLink>
-                    )}
+                    <NavLink to="/user" onClick={handleLinkClick}>
+                      Profile
+                    </NavLink>
                     <button onClick={handleLogout}>Logout</button>
                   </>
                 ) : (

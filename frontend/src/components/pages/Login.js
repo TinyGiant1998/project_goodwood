@@ -17,13 +17,22 @@ const Login = () => {
       );
       console.log("Login Response:", response.data); // Debugging
 
-      const { token, role, username, email: userEmail } = response.data;
+      const {
+        token,
+        role,
+        username,
+        email: userEmail,
+        firstName,
+        lastName,
+      } = response.data;
 
-      if (token && role && username && email) {
+      if (token && role && username && email && firstName && lastName) {
         localStorage.setItem("token", token);
         localStorage.setItem("role", role);
-        localStorage.setItem("username", username); // ✅ Store username
-        localStorage.setItem("email", email); // ✅ Store email
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email);
+        localStorage.setItem("firstName", firstName);
+        localStorage.setItem("lastName", lastName);
 
         window.location.href = "/"; // Redirect to homepage
       } else {

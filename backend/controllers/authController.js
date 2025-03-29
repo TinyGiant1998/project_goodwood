@@ -65,18 +65,22 @@ const login = async (req, res) => {
     }
   );
 
-  console.log("Login Response:", {
-    token,
-    role: user.role,
-    username: user.username,
-    email: user.email,
-  });
+  // console.log("Login Response:", {
+  //   token,
+  //   role: user.role,
+  //   username: user.username,
+  //   email: user.email,
+  //   firstName: user.firstName,
+  //   lastName: user.lastName,
+  // });
 
   res.json({
     token,
     role: user.role,
     username: user.username,
     email: user.email,
+    firstName: user.firstName,
+    lastName: user.lastName,
   });
 };
 
