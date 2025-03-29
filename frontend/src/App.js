@@ -1,4 +1,3 @@
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import React from "react";
 import Navbar from "./components/pages/Navbar";
@@ -26,7 +25,7 @@ function App() {
       <ScrollToTop />
       <div className="content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} /> {/* Home route */}
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contactUs" element={<Contact />} />
@@ -39,7 +38,6 @@ function App() {
           />
           <Route path="/membershipDonation" element={<MembershipDonation />} />
           <Route path="/whatWeDo" element={<WhatWeDo />} />
-          <Route path="/" element={<Events />} />
           <Route path="/add-event" element={<AddEvent />} />
           <Route path="/event/:id" element={<EventPage />} />
           <Route path="/user" element={<UserProfile />} />
