@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../style/Navbar.css";
 
@@ -7,10 +7,10 @@ const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [role, setRole] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
-  const dropdownRef = useRef(null); // Create a ref for the dropdown
+  const [menuOpen, setMenuOpen] = useState(false); // State for mobile menu
+  const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
-  // Function to handle changes in localStorage (for logout and login updates)
   const handleStorageChange = () => {
     const token = localStorage.getItem("token");
     const userRole = localStorage.getItem("role");
@@ -25,13 +25,8 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    // Initial check when the component mounts
     handleStorageChange();
-
-    // Listen for changes in localStorage
     window.addEventListener("storage", handleStorageChange);
-
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("storage", handleStorageChange);
     };
@@ -42,24 +37,24 @@ const Navbar = () => {
     localStorage.removeItem("role");
     setIsAuthenticated(false);
     setRole(null);
-    setShowDropdown(false); // Close dropdown on logout
-    navigate("/login"); // Redirect to login
+    setShowDropdown(false);
+    setMenuOpen(false);
+    navigate("/login");
   };
 
   const handleLinkClick = () => {
-    setShowDropdown(false); // Close the dropdown when a link is clicked
+    setShowDropdown(false);
+    setMenuOpen(false);
   };
 
-  // Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false); // Close the dropdown if click is outside
+        setShowDropdown(false);
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -83,21 +78,43 @@ const Navbar = () => {
             <option value="en">English</option>
             <option value="es">Spanish</option>
             <option value="fr">French</option>
-            {/* Add other languages here */}
           </select>
+        </div>
+
+        {/* Hamburger Menu Button */}
+        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
         </div>
       </div>
 
-      <div className="nav-links">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/aboutUs">About Us</NavLink>
-        <NavLink to="/whatWeDo">What We Do</NavLink>
-        <NavLink to="/events">Events</NavLink>
-        <NavLink to="/gallery">Gallery</NavLink>
-        <NavLink to="/communityEngagement">Community Engagement</NavLink>
-        <NavLink to="/contactUs">Contact Us</NavLink>
-        <NavLink to="/membershipDonation">Membership & Donation</NavLink>
+      {/* Navbar Links */}
+      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <NavLink to="/" onClick={handleLinkClick}>
+          Home
+        </NavLink>
+        <NavLink to="/aboutUs" onClick={handleLinkClick}>
+          About Us
+        </NavLink>
+        <NavLink to="/whatWeDo" onClick={handleLinkClick}>
+          What We Do
+        </NavLink>
+        <NavLink to="/events" onClick={handleLinkClick}>
+          Events
+        </NavLink>
+        <NavLink to="/gallery" onClick={handleLinkClick}>
+          Gallery
+        </NavLink>
+        <NavLink to="/communityEngagement" onClick={handleLinkClick}>
+          Community Engagement
+        </NavLink>
+        <NavLink to="/contactUs" onClick={handleLinkClick}>
+          Contact Us
+        </NavLink>
+        <NavLink to="/membershipDonation" onClick={handleLinkClick}>
+          Membership & Donation
+        </NavLink>
 
+        {/* Profile Dropdown */}
         <div className="profile-menu">
           <div className="dropdown" ref={dropdownRef}>
             <FaUserCircle

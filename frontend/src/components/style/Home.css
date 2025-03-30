@@ -1,15 +1,161 @@
-.home {
-  text-align: left;
-  padding: 50px 200px; /* Adjust padding */
-  /* background-color: #7895ee; */
-  min-height: auto; /* Ensure it doesn't create extra space */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Prevents pushing content down */
+/* General Styles */
+
+body {
+  font-family: "EB Garamond", serif;
+}
+.home-container {
+  /* Neutral background */
+  text-align: center;
 }
 
-/* Reset margins for consistency */
-h2,
-p {
-  margin: 10px 0; /* Ensure a small, controlled gap */
+/* Hero Section */
+.hero-section {
+  padding: 40px;
+  background-color: #b0c4de;
+}
+.hero-image {
+  width: 75%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 0px;
+  position: relative;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 15px 25px rgba(0, 0, 0, 0.3),
+    0 20px 35px rgba(0, 0, 0, 0.5); /* Third shadow (farthest) */
+}
+.hero-section h1 {
+  font-size: 4rem;
+  margin: 30px 0;
+  color: #001428;
+}
+.intro-text {
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #333;
+}
+
+/* Latest Event Section */
+.latest-event-section {
+  background-color: #e6e6fa;
+  padding: 50px;
+}
+.latest-event {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+.event-details {
+  text-align: left;
+  max-width: 50%;
+  padding: 20px;
+  border-right: 3px solid #4b0082;
+}
+.event-image {
+  width: 600px; /* Fixed width to control the size */
+  height: 500px; /* Fixed height to ensure it's square */
+  max-width: none; /* Remove any max-width limitation */
+  max-height: none; /* Remove any max-height limitation */
+  border-radius: 0px; /* Rounded corners */
+  object-fit: cover; /* Make sure the image covers the area without distortion, may crop */
+}
+
+/* Upcoming Events Section */
+.upcoming-events-section {
+  background-color: #f0f8ff;
+  padding: 40px;
+}
+.upcoming-events-table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+}
+.upcoming-events-table th,
+.upcoming-events-table td {
+  border-top: 1px solid #ddd;
+  padding: 20px;
+  text-align: left;
+  color: #000;
+}
+.upcoming-events-table th {
+  background-color: #4b0082;
+  color: white;
+}
+.book-now-btn {
+  background-color: #3464a3;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+.news-updates {
+  text-align: center;
+  padding: 30px;
+  background-color: #d3d3d3;
+  /* No need for margin-top */
+}
+.news-updates h2 {
+  font-size: 3em;
+  color: #4b0082;
+}
+.news-updates h3 {
+  font-size: 2em;
+}
+.news-updates p {
+  font-size: 1.2em;
+  color: #555;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Cross Sections */
+.cross-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  max-width: 1000px;
+  margin: 50px auto;
+  position: relative;
+}
+
+/* Vertical Line */
+.cross-sections::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: #000; /* Line color */
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+/* Horizontal Line */
+.cross-sections::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #000; /* Line color */
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Cross Section Styling */
+.cross-section h3 {
+  color: #4b0082;
+  font-size: 1.5em;
+}
+
+.cross-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.cross-section p {
+  font-size: 1em;
+  padding: 5px 0;
 }
