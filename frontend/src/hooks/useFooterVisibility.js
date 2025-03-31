@@ -1,25 +1,20 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const useFooterVisibility = () => {
-  const [isFooterVisible, setIsFooterVisible] = useState(true);
-  const timeoutRef = useRef(null); // useRef to store timeout id
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current); // clear previous timeout
-
-      timeoutRef.current = setTimeout(() => {
-        const scrolledToBottom =
-          window.innerHeight + window.scrollY >=
-          document.body.offsetHeight - 100;
-        setIsFooterVisible(scrolledToBottom);
-      }, 100); // wait 100ms after scrolling stops
+      const scrolledToBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 50;
+      setIsFooterVisible(scrolledToBottom);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on initial render
 
     return () => {
-      clearTimeout(timeoutRef.current); // clear the timeout when component unmounts
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);

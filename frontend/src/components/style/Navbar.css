@@ -1,29 +1,15 @@
-/* Reset default margin & padding */
-body,
-html {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+body {
+  margin-top: 0px; /* Adjust this value to the height of your navbar */
 }
-
-/* Navbar Container */
 .navbar {
   display: flex;
   flex-direction: column;
   background-color: #3464a3;
   color: white;
-  padding: 15px 20px;
-  position: fixed; /* Ensures navbar stays at the top */
+  padding: 1px 20px;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px; /* Fixed height */
   z-index: 1000;
-}
-
-/* Add padding to prevent content from being hidden behind navbar */
-.main-content {
-  padding-top: 100px; /* Adjust based on navbar height */
 }
 
 /* Navbar Content (Logo, Search, Language Selector) */
@@ -43,13 +29,13 @@ html {
 }
 
 .logo img {
-  height: 60px; /* Adjusted for responsiveness */
+  height: 120px;
   max-width: 100%;
   transition: all 0.3s ease-in-out;
 }
 
 .logo-text {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: bold;
   white-space: nowrap;
   transition: all 0.3s ease-in-out;
@@ -74,6 +60,11 @@ html {
   font-size: 16px;
   width: 100%;
   background: none;
+}
+
+.search-bar span {
+  margin-right: 10px;
+  font-size: 24px; /* Adjust size of icon */
 }
 
 /* Language Selector */
@@ -125,8 +116,8 @@ html {
 
 /* Profile Dropdown Content */
 .dropdown-content {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Stack items vertically */
+  align-items: center;
   position: absolute;
   top: 50px; /* Position dropdown below the profile icon */
   left: 50%; /* Center the dropdown */
@@ -136,31 +127,34 @@ html {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   min-width: 100px; /* You can reduce this to make boxes smaller */
   z-index: 100;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Style for Links and Buttons inside Dropdown */
 .dropdown-content a,
 .dropdown-content button {
   color: black; /* Ensure text color is consistent */
-  font-size: 16px;
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  text-align: center;
+  font-size: 16px; /* Adjust the font size to be the same */
+  text-decoration: none; /* Ensure there's padding inside each link/button */
+  display: block; /* Ensure they take full width */
+  width: 100%; /* Make links/buttons take full width of the dropdown */
+  text-align: center; /* Center the text */
   border-radius: 20px;
-  background-color: transparent;
+  background-color: transparent; /* Keep background transparent */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 .dropdown-content a:hover,
 .dropdown-content button:hover {
-  background-color: #555;
+  background-color: #555; /* Ensure hover effect covers the entire width */
   color: white;
 }
 
 /* Profile Icon */
 .profile-icon {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto; /* Center the profile icon */
   color: black !important;
 }
 
@@ -186,27 +180,10 @@ html {
   }
 
   /* Hide Regular Nav Links */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background: #333;
-    padding: 10px 0;
-    text-align: center;
-    z-index: 100;
-  }
 
-  /* Show When Menu is Open */
-  .nav-links.open {
-    display: flex;
-  }
-
-  /* Logo Adjustments */
+  /* Make logo smaller */
   .logo {
-    width: 30%;
+    width: 25%;
   }
 
   .logo img {
@@ -234,6 +211,67 @@ html {
   }
 }
 
+@media (max-width: 480px) {
+  /* Further reduce logo & text for very small screens */
+  .logo {
+    width: 20%;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .search-bar {
+    width: 50%;
+    padding: 3px 8px;
+  }
+
+  .language-selector {
+    width: 20%;
+  }
+
+  .language-selector select {
+    font-size: 12px;
+    padding: 4px;
+  }
+}
+
+/* Default Hidden State */
+.nav-links {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background: #333;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 100;
+}
+
+/* Show When Menu is Open */
+.nav-links.open {
+  display: flex; /* Make it visible */
+}
+
+/* Navbar Links Styling */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 /* Hide Hamburger Menu on Large Screens */
 @media (min-width: 768px) {
   .hamburger {
@@ -241,7 +279,7 @@ html {
   }
 
   .nav-links {
-    display: flex; /* Show menu normally */
+    display: flex; /* Show the menu normally on large screens */
     position: static;
     flex-direction: row;
     background: none;

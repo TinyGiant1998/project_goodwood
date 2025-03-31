@@ -39,23 +39,27 @@ body {
   background-color: #e6e6fa;
   padding: 50px;
 }
+
 .latest-event {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
 }
 .event-details {
   text-align: left;
-  max-width: 50%;
+  max-width: 40%;
   padding: 20px;
-  border-right: 3px solid #4b0082;
+}
+
+.event-details h3 {
+  text-align: left;
 }
 .event-image {
-  width: 600px; /* Fixed width to control the size */
-  height: 500px; /* Fixed height to ensure it's square */
+  width: 650px; /* Fixed width to control the size */
+  height: 400px; /* Fixed height to ensure it's square */
   max-width: none; /* Remove any max-width limitation */
   max-height: none; /* Remove any max-height limitation */
   border-radius: 0px; /* Rounded corners */
